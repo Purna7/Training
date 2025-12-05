@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Welcome Message
-              run: ech "First workflow"
+              run: echo "First workflow"
             - name: List Files
               run: ls
             - name: Read File
