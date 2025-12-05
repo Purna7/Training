@@ -4,6 +4,9 @@ on: workflow_dispatch
 jobs:
     first-job:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
         steps:
             - uses: actions/checkout@v3.6.0
             - name: Welcome Message
@@ -12,10 +15,7 @@ jobs:
               run: ls
             - name: Read File
               run: cat README.md
-    second-job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Welcome Message
-              run: echo "Second job"
+            - name: Display OS
+              run: echo "Running on ${{matrix.os}}"
 
 
